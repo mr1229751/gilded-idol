@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gilded Idol — a museum heist stealth game</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #07090f; height: 100%; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; box-shadow: 0 0 60px rgba(0,0,0,.8); }
+</style>
+</head>
+<body>
+<canvas id="stage" width="1280" height="800"></canvas>
+<script src="js/galleries.js"></script>
+<script src="js/vision-cones.js"></script>
+<script src="js/guard-patrol.js"></script>
+<script src="js/detection.js"></script>
+<script src="js/lighting.js"></script>
+<script src="js/museum-render.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/input.js"></script>
+<script src="js/main.js"></script>
+<script>GildedIdol.boot();</script>
+</body>
+</html>
