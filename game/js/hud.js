@@ -77,26 +77,27 @@ function draw(ctx, state) {
   // Hearts.
   for (let i = 0; i < 3; i++) drawHeart(ctx, 1010 + i * 30, GI.HUD / 2, i < state.hearts);
 
-  // Crouch pill.
+  // Crouch pill — kept clear of the hearts on its left and the eye on its
+  // right (an earlier layout let it collide with the HIDDEN block).
   if (player.crouched) {
     ctx.fillStyle = 'rgba(87, 230, 201, 0.16)';
-    ctx.fillRect(1118, GI.HUD / 2 - 12, 92, 24);
+    ctx.fillRect(1096, GI.HUD / 2 - 12, 88, 24);
     ctx.strokeStyle = '#57e6c9';
     ctx.lineWidth = 1.5;
-    ctx.strokeRect(1118, GI.HUD / 2 - 12, 92, 24);
-    ctx.font = 'bold 12px sans-serif';
+    ctx.strokeRect(1096, GI.HUD / 2 - 12, 88, 24);
+    ctx.font = 'bold 11px sans-serif';
     ctx.fillStyle = '#57e6c9';
     ctx.textAlign = 'center';
-    ctx.fillText('CROUCHED', 1164, GI.HUD / 2 + 1);
+    ctx.fillText('CROUCHED', 1140, GI.HUD / 2 + 1);
   }
 
   // The eye: HIDDEN or SEEN, top-right corner.
   const seen = state.playerSeen;
-  drawEye(ctx, 1206, GI.HUD / 2 - 8, seen);
+  drawEye(ctx, 1232, GI.HUD / 2 - 8, seen);
   ctx.font = 'bold 13px sans-serif';
   ctx.textAlign = 'center';
   ctx.fillStyle = seen ? '#ff5147' : '#57e6c9';
-  ctx.fillText(seen ? 'SEEN' : 'HIDDEN', 1206, GI.HUD / 2 + 13);
+  ctx.fillText(seen ? 'SEEN' : 'HIDDEN', 1232, GI.HUD / 2 + 13);
 }
 
 // Compact centred panel for title / caught / win / game over.

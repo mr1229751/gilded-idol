@@ -338,15 +338,18 @@ function drawMeter(ctx, g) {
     ctx.fillStyle = '#ffd23e';
     ctx.fillText('?', g.x, y - 8);
   }
-  // The recovery tell: while a searching guard's meter drains, label it.
+  // The recovery tell: while a searching guard's meter drains, label it —
+  // on a dark backing plate so it survives the cone glow behind it.
   if (g.state === 'searching' && !g.seesPlayer) {
-    ctx.font = 'bold 11px sans-serif';
+    ctx.fillStyle = 'rgba(5, 8, 14, 0.78)';
+    ctx.fillRect(g.x - 37, y + h + 3, 74, 30);
+    ctx.font = 'bold 12px sans-serif';
     ctx.fillStyle = '#9be7ff';
-    ctx.fillText('▼ COOLING', g.x, y + h + 13);
+    ctx.fillText('▼ COOLING', g.x, y + h + 14);
     const lit = Math.ceil(frac * 5);
     for (let i = 0; i < 5; i++) {
       ctx.fillStyle = i < lit ? '#9be7ff' : 'rgba(155, 231, 255, 0.25)';
-      ctx.fillRect(g.x - 20 + i * 9, y + h + 17, 6, 4);
+      ctx.fillRect(g.x - 20 + i * 9, y + h + 21, 6, 4);
     }
   }
 }
